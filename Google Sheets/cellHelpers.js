@@ -23,7 +23,7 @@ function getCellValueByColumnName_(sheet, columnName, row) {
 function getCellRangeByColumnName_(sheet, columnName, row) {
   let data = sheet.getDataRange().getValues();
   let column = data[0].indexOf(columnName);
-  if (column != -1) {
+  if (column !== -1) {
     return sheet.getRange(row, column + 1, 1, 1);
   }
 }
@@ -43,7 +43,7 @@ function lastRowForColumn_(sheet, column){
   var data = sheet.getRange(1, column, numRows).getValues();
   // Iterate backwards and find first non empty cell
   for(var i = data.length - 1 ; i >= 0 ; i--){
-    if (data[i][0] != null && data[i][0] != ""){
+    if (data[i][0] != null && data[i][0] !== ""){
       return i + 1;
     }
   }
